@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SiapLapor</string>
+    <string name="tambah_laporan_baru">Tambah Laporan Baru</string>
+    <string name="nik">NIK</string>
+    <string name="nama">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="isi_laporan">Isi Laporan</string>
+    <string name="tambahkan">Tambahkan</string>
+    <string name="telepon">Telepon</string>
 </resources>
