@@ -7,6 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="bluetop">#306CC2</color>
+    <color name="button">#1F6CB0</color>
+    <color name="titletext">#2383C6</color>
     <color name="blue">#0000ff</color>
     <color name="mainBlue">#042c62</color>
     <color name="absoluteWhite">#f7f5ee</color>
