@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SiapLapor">
-        <activity android:name=".RegisterActivity" android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"></activity>
-<!--         <activity android:name=".LoginActivity"></activity> -->
+        <activity android:name=".DetailLaporanActivity"></activity>
+        <activity android:name=".DetailLaporanAdmActivity"></activity>
         <activity
-            android:name=".LoginActivity"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" /> <!-- <activity android:name=".LoginActivity"></activity> -->
+         <activity
+         android:name=".LoginActivity"
+         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+         <intent-filter>
+         <action android:name="android.intent.action.MAIN" />
+         <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         </activity>
     </application>
 
 </manifest>
