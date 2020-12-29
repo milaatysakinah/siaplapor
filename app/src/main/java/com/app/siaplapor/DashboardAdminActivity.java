@@ -22,7 +22,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_admin);
 
-        addData();
+        //addData();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         adapter = new ReportAdapter(reportArrayList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(DashboardAdminActivity.this);
@@ -48,10 +48,10 @@ public class DashboardAdminActivity extends AppCompatActivity {
         return true;
     }
 
-    private void addData() {
-        reportArrayList = new ArrayList<>();
-        reportArrayList.add(new Report("2110181008", "Akbar", "Lamongan", "085706363468", "Lamongan Aman", "1/12/2020"));
-        reportArrayList.add(new Report("2110181005", "Intan", "Jombang", "085748371929", "Jombang Aman", "3/12/2020"));
-        reportArrayList.add(new Report("2110181013", "Nisar", "Surabaya", "081331758391", "Surabaya Aman", "5/12/2020"));
-    }
+//    private void addData() {
+//        reportArrayList = new ArrayList<>();
+//        reportArrayList.add(new Report("2110181008", "Akbar", "Lamongan", "085706363468", "Lamongan Aman", "1/12/2020"));
+//        reportArrayList.add(new Report("2110181005", "Intan", "Jombang", "085748371929", "Jombang Aman", "3/12/2020"));
+//        reportArrayList.add(new Report("2110181013", "Nisar", "Surabaya", "081331758391", "Surabaya Aman", "5/12/2020"));
+//    }
 }

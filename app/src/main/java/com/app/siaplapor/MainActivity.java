@@ -11,6 +11,38 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+//    BottomNavigationView bottom_nav;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+//
+//        bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_nav);
+//        bottom_nav.setOnNavigationItemSelectedListener(navListener);
+//        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                new DashboardAdminFragment()).commit();
+//    }
+//
+//    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+//            new BottomNavigationView.OnNavigationItemSelectedListener() {
+//                @Override
+//                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                    Fragment selected = null;
+//                    switch (item.getItemId()) {
+//                        case R.id.dashboard:
+//                            selected = new DashboardAdminFragment();
+//                            break;
+//                        case R.id.tambah_laporan:
+//                            selected = new AddLaporanFragment();
+//                            break;
+//                    }
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                            selected).commit();
+//                    return true;
+//                }
+//            };
+
     BottomNavigationView bottom_nav;
 
     @Override
@@ -18,10 +50,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_nav);
+        bottom_nav = (BottomNavigationView)findViewById(R.id.bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new DashboardAdminFragment()).commit();
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -29,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selected = null;
-                    switch (item.getItemId()) {
-                        case R.id.dashboard:
+                    switch (item.getItemId()){
+                        case  R.id.dashboard:
                             selected = new DashboardAdminFragment();
                             break;
-                        case R.id.tambah_laporan:
+                        case  R.id.tambah_laporan:
                             selected = new AddLaporanFragment();
                             break;
                     }

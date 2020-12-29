@@ -3,4 +3,11 @@
     <string name="dashboard">Dashboard</string>
     <string name="profile">Profile</string>
     <string name="logout">Logout</string>
+    <string name="tambah_laporan_baru">Tambah Laporan</string>
+    <string name="nik">NIK</string>
+    <string name="nama">Nama</string>
+    <string name="alamat">Alamat</string>
+    <string name="telepon">Telepon</string>
+    <string name="isi_laporan">Isi Laporan</string>
+    <string name="tambahkan">Tambahkan</string>
 </resources>

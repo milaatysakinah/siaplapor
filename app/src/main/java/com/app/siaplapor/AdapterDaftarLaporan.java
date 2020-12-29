@@ -41,10 +41,10 @@ public class AdapterDaftarLaporan extends RecyclerView.Adapter<AdapterDaftarLapo
     public void onBindViewHolder(@NonNull AdapterDaftarLaporan.ViewHolder holder, int position) {
         holder.nik.setText(daftarLaporan.get(position).getNik());
         holder.nama.setText(daftarLaporan.get(position).getNama());
-        holder.telepon.setText(daftarLaporan.get(position).getTelepon());
+        //holder.telepon.setText(daftarLaporan.get(position).getTelepon());
         holder.alamat.setText(daftarLaporan.get(position).getAlamat());
-        holder.isi_laporan.setText(daftarLaporan.get(position).getIsi_laporan());
-        holder.user_id.setText(daftarLaporan.get(position).getUserId());
+        //holder.isi_laporan.setText(daftarLaporan.get(position).getIsi_laporan());
+        //holder.user_id.setText(daftarLaporan.get(position).getUserId());
     }
 
     @Override

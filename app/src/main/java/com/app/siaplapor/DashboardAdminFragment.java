@@ -1,6 +1,7 @@
 package com.app.siaplapor;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class DashboardAdminFragment extends Fragment {
     private void loadDataLaporan() {
         adapterDaftarLaporan = new AdapterDaftarLaporan(getContext());
         Call<DataResponse> daftar_laporan = interfaceConnection.get_all_report();
+        Log.d("daftar", daftar_laporan.toString());
         daftar_laporan.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {

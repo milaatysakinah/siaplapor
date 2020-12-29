@@ -2,7 +2,9 @@ package com.app.siaplapor;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -25,7 +27,7 @@ public class AddLaporanFragment extends Fragment {
 
     TextInputLayout layoutNik, layoutNama, layoutTelepon, layoutAlamat, layoutIsiLaporan;
     TextInputEditText inputNik, inputNama, inputTelepon, inputAlamat, inputIsiLaporan;
-    String user_id = "1";
+    static String user_id = "1";
     Button btnTambahLaporan;
     InterfaceConnection interfaceConnection;
 
@@ -84,5 +86,11 @@ public class AddLaporanFragment extends Fragment {
                 Toast.makeText(getActivity(), "Terjadi kesalahan", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_add_laporan, container, false);
     }
 }
