@@ -33,5 +33,4 @@ public interface InterfaceConnection {
             @Field("isi_laporan") String isi_laporan,
             @Field("user_id") String user_id
     );
-
 }
