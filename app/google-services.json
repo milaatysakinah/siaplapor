@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "315252111134",
+    "project_id": "siaplapor-135af",
+    "storage_bucket": "siaplapor-135af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315252111134:android:a3fc233555a9d5e75b7b0f",
+        "android_client_info": {
+          "package_name": "com.app.siaplapor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315252111134-7jfha9r3p0n6d4cmu0s3m0ivsc1hcbe4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDClnrNJkdHSykHNF6ByIk2-tFRBMkTWD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315252111134-7jfha9r3p0n6d4cmu0s3m0ivsc1hcbe4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
