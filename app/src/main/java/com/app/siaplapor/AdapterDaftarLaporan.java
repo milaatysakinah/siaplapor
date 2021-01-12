@@ -2,7 +2,6 @@ package com.app.siaplapor;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,18 +12,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.siaplapor.model.LaporanModel;
+import com.app.siaplapor.model.Report;
 import com.app.siaplapor.response.DataResponse;
 import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -35,7 +31,7 @@ import retrofit2.Response;
 public class AdapterDaftarLaporan extends RecyclerView.Adapter<AdapterDaftarLaporan.ViewHolder> {
 
     InterfaceConnection interfaceConnection;
-    ArrayList<LaporanModel> daftarLaporan;
+    ArrayList<Report> daftarLaporan;
     Context mContext;
     String id;
 
@@ -55,9 +51,8 @@ public class AdapterDaftarLaporan extends RecyclerView.Adapter<AdapterDaftarLapo
     @Override
     public void onBindViewHolder(@NonNull AdapterDaftarLaporan.ViewHolder holder, int position) {
         holder.nik.setText(daftarLaporan.get(position).getNik());
-        holder.nama.setText(daftarLaporan.get(position).getNama());
+        holder.nama.setText(daftarLaporan.get(position).getName());
         //holder.telepon.setText(daftarLaporan.get(position).getTelepon());
-        holder.alamat.setText(daftarLaporan.get(position).getAlamat());
         //holder.isi_laporan.setText(daftarLaporan.get(position).getIsi_laporan());
         //holder.user_id.setText(daftarLaporan.get(position).getUserId());
 
@@ -115,7 +110,7 @@ public class AdapterDaftarLaporan extends RecyclerView.Adapter<AdapterDaftarLapo
         return daftarLaporan.size();
     }
 
-    public void updateDataLaporan(ArrayList<LaporanModel> updateDataLaporan) {
+    public void updateDataLaporan(ArrayList<Report> updateDataLaporan) {
         daftarLaporan.clear();
         daftarLaporan.addAll(updateDataLaporan);
         notifyDataSetChanged();

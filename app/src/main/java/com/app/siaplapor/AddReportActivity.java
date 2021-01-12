@@ -46,7 +46,6 @@ public class AddReportActivity extends AppCompatActivity {
             }
         });
         nameField = findViewById(R.id.nama);
-        addressField = findViewById(R.id.alamat);
         phoneField = findViewById(R.id.telepon);
         reportField = findViewById(R.id.isi_laporan);
         btn_add = findViewById(R.id.btn_add);
@@ -59,11 +58,10 @@ public class AddReportActivity extends AppCompatActivity {
     public void validateForm() {
         boolean isNikNull = nikField.getText().toString().isEmpty();
         boolean isNameNull = nameField.getText().toString().isEmpty();
-        boolean isAddressNull = addressField.getText().toString().isEmpty();
         boolean isPhoneNull = phoneField.getText().toString().isEmpty();
         boolean isReportNull = reportField.getText().toString().isEmpty();
 
-        if (!(isNikNull || isNameNull || isAddressNull || isPhoneNull || isReportNull)) {
+        if (!(isNikNull || isNameNull || isPhoneNull || isReportNull)) {
             btn_add.setBackground(ContextCompat.getDrawable(context, R.drawable.blue_button));
             btn_add.setEnabled(true);
             btn_add.setClickable(true);

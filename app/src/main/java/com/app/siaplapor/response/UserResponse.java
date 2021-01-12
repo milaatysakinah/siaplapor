@@ -1,16 +1,17 @@
 package com.app.siaplapor.response;
 
 import com.app.siaplapor.model.Report;
+import com.app.siaplapor.model.User;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class DataResponse {
+public class UserResponse {
     private Boolean status;
     private String message;
 
     @SerializedName("data")
-    List<Report> list_report;
+    List<User> list_user;
 
     public Boolean getStatus() {
         return status;
@@ -28,11 +29,11 @@ public class DataResponse {
         this.message = message;
     }
 
-    public List<Report> getList_report() {
-        return list_report;
+    public List<User> getList_user() {
+        return list_user;
     }
 
-    public void setList_report(List<Report> report) {
-        this.list_report = list_report;
+    public void setList_user (List<User> user) {
+        this.list_user = list_user;
     }
 }

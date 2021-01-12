@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         bottom_nav = (BottomNavigationView)findViewById(R.id.bottom_nav);
         bottom_nav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new DashboardAdminFragment()).commit();
+                new DashboardUserFragment()).commit();
 
     }
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selected = null;
                     switch (item.getItemId()){
                         case  R.id.dashboard:
-                            selected = new DashboardAdminFragment();
+                            selected = new DashboardUserFragment();
                             break;
                         case  R.id.tambah_laporan:
                             selected = new AddLaporanFragment();

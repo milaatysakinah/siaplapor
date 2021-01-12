@@ -4,7 +4,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiConnection {
-
     //sesuaikan dengan IP computer
     public static final String BASE_URL = "http://192.168.2.8:8000/api/";
     private static Retrofit retrofit = null;

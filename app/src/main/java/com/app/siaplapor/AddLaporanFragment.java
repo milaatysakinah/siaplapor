@@ -17,6 +17,7 @@ import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
 import org.json.JSONObject;
 
 import retrofit2.Call;
@@ -59,10 +60,9 @@ public class AddLaporanFragment extends Fragment {
         String nik = inputNik.getText().toString();
         String nama = inputNama.getText().toString();
         String telepon = inputTelepon.getText().toString();
-        String alamat = inputAlamat.getText().toString();
         String isi_laporan = inputIsiLaporan.getText().toString();
 
-        Call<DataResponse> addLaporan = interfaceConnection.insert_data_report(nik,nama,telepon,alamat,isi_laporan,user_id);
+        Call<DataResponse> addLaporan = interfaceConnection.insert_data_report(nik,nama,telepon,isi_laporan,user_id);
         addLaporan.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {

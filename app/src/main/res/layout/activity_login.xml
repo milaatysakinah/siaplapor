@@ -44,7 +44,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_username"
+                android:id="@+id/inputEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -60,18 +60,18 @@
                     android:drawableStart="@drawable/ic_user_24"
                     android:drawableLeft="@drawable/ic_user_24"
                     android:drawablePadding="15dp"
-                    android:hint="Username" />
+                    android:hint="Email" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_password"
+                android:id="@+id/inputPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_username">
+                app:layout_constraintTop_toBottomOf="@+id/inputEmail">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -93,7 +93,7 @@
                 android:text="Login"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/til_password" />
+                app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
             <LinearLayout
                 android:layout_width="match_parent"

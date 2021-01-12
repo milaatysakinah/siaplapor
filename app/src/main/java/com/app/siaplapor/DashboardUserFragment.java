@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.siaplapor.model.LaporanModel;
+import com.app.siaplapor.model.Report;
 import com.app.siaplapor.response.DataResponse;
 import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DashboardUserFragment extends Fragment {
-    ArrayList<LaporanModel> daftarLaporan = new ArrayList<>();
+    ArrayList<Report> daftarLaporan = new ArrayList<>();
     RecyclerView tabel_laporan;
     InterfaceConnection interfaceConnection;
     AdapterDaftarLaporan adapterDaftarLaporan;
@@ -47,7 +47,7 @@ public class DashboardUserFragment extends Fragment {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
                 if (response.isSuccessful()) {
-                    List<LaporanModel> listLaporan = response.body().getList_laporan();
+                    List<Report> listLaporan = response.body().getList_report();
                     daftarLaporan.addAll(listLaporan);
                 } else {
                     try {
