@@ -12,6 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.app.siaplapor.data.session.SessionRepository;
+import com.app.siaplapor.data.session.UserSessionRepository;
+import com.app.siaplapor.model.User;
 import com.app.siaplapor.response.DataResponse;
 import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
@@ -31,20 +34,25 @@ public class AddLaporanFragment extends Fragment {
     static String user_id = "1";
     Button btnTambahLaporan;
     InterfaceConnection interfaceConnection;
+    private SessionRepository userRepository;
+    User userLogin;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        userRepository =  new UserSessionRepository(getContext());
+        userLogin = (User) userRepository.getSessionData();
+
         layoutNik = (TextInputLayout)view.findViewById(R.id.layoutNik);
         layoutNama = (TextInputLayout)view.findViewById(R.id.layoutNama);
         layoutTelepon = (TextInputLayout)view.findViewById(R.id.layoutTelepon);
-        layoutAlamat = (TextInputLayout)view.findViewById(R.id.layoutAlamat);
+//        layoutAlamat = (TextInputLayout)view.findViewById(R.id.layoutAlamat);
         layoutIsiLaporan = (TextInputLayout)view.findViewById(R.id.layoutIsiLaporan);
         inputNik = (TextInputEditText)view.findViewById(R.id.inputNik);
         inputNama = (TextInputEditText)view.findViewById(R.id.inputNama);
         inputTelepon = (TextInputEditText)view.findViewById(R.id.inputTelepon);
-        inputAlamat = (TextInputEditText)view.findViewById(R.id.inputAlamat);
+//        inputAlamat = (TextInputEditText)view.findViewById(R.id.inputAlamat);
         inputIsiLaporan = (TextInputEditText)view.findViewById(R.id.inputIsiLaporan);
         btnTambahLaporan = (Button)view.findViewById(R.id.btnTambahLaporan);
         interfaceConnection = ApiConnection.getClient().create(InterfaceConnection.class);
@@ -62,7 +70,7 @@ public class AddLaporanFragment extends Fragment {
         String telepon = inputTelepon.getText().toString();
         String isi_laporan = inputIsiLaporan.getText().toString();
 
-        Call<DataResponse> addLaporan = interfaceConnection.insert_data_report(nik,nama,telepon,isi_laporan,user_id);
+        Call<DataResponse> addLaporan = interfaceConnection.insert_data_report(nik,nama,telepon,isi_laporan,userLogin.getEmail());
         addLaporan.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {

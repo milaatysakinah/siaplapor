@@ -12,7 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.app.siaplapor.data.session.SessionRepository;
+import com.app.siaplapor.data.session.UserSessionRepository;
 import com.app.siaplapor.model.Report;
+import com.app.siaplapor.model.User;
 import com.app.siaplapor.response.DataResponse;
 import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
@@ -31,18 +34,22 @@ public class DashboardUserFragment extends Fragment {
     RecyclerView tabel_laporan;
     InterfaceConnection interfaceConnection;
     AdapterDaftarLaporan adapterDaftarLaporan;
+    private SessionRepository userRepository;
+    User userLogin;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tabel_laporan = (RecyclerView)view.findViewById(R.id.recyclerView_daftarLaporan);
+        userRepository =  new UserSessionRepository(getContext());
+        userLogin = (User) userRepository.getSessionData();
         interfaceConnection = ApiConnection.getClient().create(InterfaceConnection.class);
         loadDataLaporan();
     }
 
     private void loadDataLaporan() {
         adapterDaftarLaporan = new AdapterDaftarLaporan(getContext());
-        Call<DataResponse> daftar_laporan = interfaceConnection.get_user_report("sotolamongan@gmail.com");
+        Call<DataResponse> daftar_laporan = interfaceConnection.get_user_report(userLogin.getEmail());
         daftar_laporan.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {

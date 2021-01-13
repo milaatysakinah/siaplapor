@@ -14,9 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.app.siaplapor.data.session.SessionRepository;
+import com.app.siaplapor.data.session.UserSessionRepository;
 import com.app.siaplapor.model.User;
 import com.app.siaplapor.response.DataResponse;
 import com.app.siaplapor.response.UserResponse;
+import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -40,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     InterfaceConnection interfaceConnection;
+    private SessionRepository userRepository;
     private String role;
 
     @Override
@@ -54,10 +58,22 @@ public class LoginActivity extends AppCompatActivity {
 //            finish();
 //        }
 
+        userRepository =  new UserSessionRepository(this);
+
         tvRegister = (TextView) findViewById(R.id.tv_register);
         btnLogin = (Button) findViewById(R.id.button);
         inputEmail = (TextInputEditText) findViewById(R.id.etEmail);
         inputPassword = (TextInputEditText) findViewById(R.id.etPassword);
+
+        interfaceConnection = ApiConnection.getClient().create(InterfaceConnection.class);
+
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,12 +109,14 @@ public class LoginActivity extends AppCompatActivity {
                                         public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                                             if (response.isSuccessful()) {
                                                 List<User> listUser = response.body().getList_user();
+                                                User userLogin = listUser.get(0);
+                                                userRepository.setSessionData(userLogin);
                                                 role = listUser.get(0).getRole();
                                                 if(role.equals("admin")){
                                                     Intent intent = new Intent(LoginActivity.this, MainAdminActivity.class);
                                                     startActivity(intent);
                                                     finish();
-                                                } else{
+                                                } else {
                                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                                     startActivity(intent);
                                                     finish();

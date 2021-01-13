@@ -31,14 +31,14 @@ public interface InterfaceConnection {
     @POST("report/insert")
     Call<DataResponse> insert_data_report(
             @Field("nik") String nik,
-            @Field("nama") String name,
-            @Field("telepon") String phone,
-            @Field("isi_laporan") String report,
-            @Field("user_id") String user_id
+            @Field("name") String name,
+            @Field("phone") String phone,
+            @Field("report") String report,
+            @Field("email") String user_id
     );
 
     @FormUrlEncoded
-    @POST("register")
+    @POST("user/register")
     Call<UserResponse> register(
             @Field("name") String name,
             @Field("username") String username,

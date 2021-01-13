@@ -19,6 +19,7 @@
             app:errorEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_margin="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -30,14 +31,14 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutNama"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            >
+            android:layout_marginBottom="5dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputNama"
@@ -48,6 +49,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/layoutTelepon"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,30 +66,31 @@
                 android:hint="Masukkan Telepon"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/layoutAlamat"-->
+<!--            app:errorEnabled="true"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="215dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            >-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/inputAlamat"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="Masukkan Alamat"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutAlamat"
+            android:id="@+id/layoutIsiLaporan"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:errorEnabled="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="215dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginBottom="5dp"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputAlamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Masukkan Alamat"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/layoutIsiLaporan"
-            app:errorEnabled="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="285dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
@@ -109,7 +112,7 @@
             android:textAllCaps="false"
             android:textSize="20dp"
             android:textColor="#fff"
-            android:layout_marginTop="355dp"
+            android:layout_marginTop="285dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="12dp"

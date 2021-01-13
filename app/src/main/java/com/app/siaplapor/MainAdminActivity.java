@@ -18,8 +18,30 @@ public class MainAdminActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
 
+        bottom_nav = (BottomNavigationView)findViewById(R.id.bottom_nav);
+        bottom_nav.setOnNavigationItemSelectedListener(navListener);
+
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new DashboardAdminFragment()).commit();
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selected = null;
+                    switch (item.getItemId()){
+                        case  R.id.dashboard:
+                            selected = new DashboardAdminFragment();
+                            break;
+//                        case  R.id.tambah_laporan:
+//                            selected = new AddLaporanFragment();
+//                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            selected).commit();
+                    return true;
+                }
+            };
 }

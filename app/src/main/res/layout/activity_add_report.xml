@@ -42,16 +42,16 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:backgroundTint="@color/mainBlue"/>
-        <EditText
-            android:id="@+id/alamat"
-            android:layout_width="361dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="@string/alamat"
-            android:backgroundTint="@color/mainBlue"/>
+<!--        <EditText-->
+<!--            android:id="@+id/alamat"-->
+<!--            android:layout_width="361dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="4dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:ems="10"-->
+<!--            android:inputType="text"-->
+<!--            android:hint="@string/alamat"-->
+<!--            android:backgroundTint="@color/mainBlue"/>-->
         <EditText
             android:id="@+id/telepon"
             android:layout_width="match_parent"
