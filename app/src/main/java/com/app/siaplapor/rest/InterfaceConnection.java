@@ -16,7 +16,7 @@ public interface InterfaceConnection {
     Call<DataResponse> get_all_report();
 
     @GET("user/role/{email}")
-    Call<UserResponse> checkrole(@Path("email") String email);
+    Call<UserResponse> checkRole(@Path("email") String email);
 
     @GET("report/{id}")
     Call<DataResponse> get_detail_report(@Path("id") String id);
@@ -24,8 +24,8 @@ public interface InterfaceConnection {
     @DELETE("report/delete/{id}")
     Call<DataResponse> delete_data_report(@Path("id") String id);
 
-    @GET("report/user/{userId}")
-    Call<DataResponse> get_user_report(@Path("userId") String userId);
+    @GET("report/user/{email}")
+    Call<DataResponse> get_user_report(@Path("email") String email);
 
     @FormUrlEncoded
     @POST("report/insert")
@@ -39,7 +39,7 @@ public interface InterfaceConnection {
 
     @FormUrlEncoded
     @POST("register")
-    Call<DataResponse> register(
+    Call<UserResponse> register(
             @Field("name") String name,
             @Field("username") String username,
             @Field("email") String email,

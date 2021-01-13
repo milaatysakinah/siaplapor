@@ -20,6 +20,7 @@ import com.app.siaplapor.response.UserResponse;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,7 +37,7 @@ import retrofit2.http.Path;
 public class LoginActivity extends AppCompatActivity {
     private Button btnLogin;
     private TextView tvRegister;
-    private TextInputLayout inputEmail, inputPassword;
+    private TextInputEditText inputEmail, inputPassword;
     private FirebaseAuth auth;
     InterfaceConnection interfaceConnection;
     private String role;
@@ -48,29 +49,21 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
-        if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
+//        if (auth.getCurrentUser() != null) {
+//            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+//            finish();
+//        }
 
         tvRegister = (TextView) findViewById(R.id.tv_register);
-        btnLogin = (Button) findViewById(R.id.btn_login);
-        inputEmail = (TextInputLayout) findViewById(R.id.inputEmail);
-        inputPassword = (TextInputLayout) findViewById(R.id.inputPassword);
-        tvRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent register = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(register);
-                finish();
-            }
-        });
+        btnLogin = (Button) findViewById(R.id.button);
+        inputEmail = (TextInputEditText) findViewById(R.id.etEmail);
+        inputPassword = (TextInputEditText) findViewById(R.id.etPassword);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = inputEmail.getEditText().toString();
-                final String password = inputPassword.getEditText().toString();
+                String email = inputEmail.getText().toString();
+                final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -94,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Call<UserResponse> checkrole = interfaceConnection.checkrole(email);
+                                    Call<UserResponse> checkrole = interfaceConnection.checkRole(email);
                                     checkrole.enqueue(new Callback<UserResponse>() {
                                         @Override
                                         public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

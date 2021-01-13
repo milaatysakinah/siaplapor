@@ -16,9 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.app.siaplapor.response.DataResponse;
+import com.app.siaplapor.response.UserResponse;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private Button btnRegister;
     private TextView tvLogin;
-    private TextInputLayout tifEmail, tifPassword, tifAddress, tifUsername, tifName;
+    private TextInputEditText tifEmail, tifPassword, tifAddress, tifUsername, tifName;
     private FirebaseAuth auth;
     InterfaceConnection interfaceConnection;
     private String role;
@@ -47,16 +49,17 @@ public class RegisterActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         tvLogin = (TextView) findViewById(R.id.tv_login);
-        tifEmail = (TextInputLayout) findViewById(R.id.til_email);
-        tifPassword = (TextInputLayout) findViewById(R.id.til_password);
-        tifAddress = (TextInputLayout) findViewById(R.id.til_address);
-        tifUsername = (TextInputLayout) findViewById(R.id.til_username);
-        tifName = (TextInputLayout) findViewById(R.id.til_name);
+        tifEmail = (TextInputEditText) findViewById(R.id.etEmail);
+        tifPassword = (TextInputEditText) findViewById(R.id.etPassword);
+        tifAddress = (TextInputEditText) findViewById(R.id.etAddress);
+        tifUsername = (TextInputEditText) findViewById(R.id.etUsername);
+        tifName = (TextInputEditText) findViewById(R.id.etName);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
 
         tvLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this, Login2Activity.class));
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -64,11 +67,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = tifName.getEditText().toString().trim();
-                String username = tifUsername.getEditText().toString().trim();
-                String email = tifEmail.getEditText().toString().trim();
-                String password = tifPassword.getEditText().toString().trim();
-                String address = tifAddress.getEditText().toString().trim();
+                String name = tifName.getText().toString().trim();
+                String username = tifUsername.getText().toString().trim();
+                String email = tifEmail.getText().toString().trim();
+                String password = tifPassword.getText().toString().trim();
+                String address = tifAddress.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -98,10 +101,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Call<DataResponse> register = interfaceConnection.register(name, username, email, password, address);
-                                    register.enqueue(new Callback<DataResponse>() {
+                                    Call<UserResponse> register_user = interfaceConnection.register( name, username, email, password, address);
+                                    register_user.enqueue(new Callback<UserResponse>() {
                                         @Override
-                                        public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
+                                        public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                                             if (response.isSuccessful()) {
                                                 Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                             } else {
@@ -115,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
 
                                         @Override
-                                        public void onFailure(Call<DataResponse> call, Throwable t) {
+                                        public void onFailure(Call<UserResponse> call, Throwable t) {
                                             Log.d("Error here", "Error here", t);
                                             t.printStackTrace();
                                             Log.d("Error here", "Error here2", t);

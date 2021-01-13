@@ -42,7 +42,7 @@ public class DashboardUserFragment extends Fragment {
 
     private void loadDataLaporan() {
         adapterDaftarLaporan = new AdapterDaftarLaporan(getContext());
-        Call<DataResponse> daftar_laporan = interfaceConnection.get_user_report("1");
+        Call<DataResponse> daftar_laporan = interfaceConnection.get_user_report("sotolamongan@gmail.com");
         daftar_laporan.enqueue(new Callback<DataResponse>() {
             @Override
             public void onResponse(Call<DataResponse> call, Response<DataResponse> response) {
