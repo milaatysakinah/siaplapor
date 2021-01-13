@@ -21,6 +21,9 @@ public interface InterfaceConnection {
     @GET("report/{id}")
     Call<DataResponse> get_detail_report(@Path("id") String id);
 
+    @GET("user/profile/{emsil}")
+    Call<UserResponse> get_profile(@Path("email") String email);
+
     @DELETE("report/delete/{id}")
     Call<DataResponse> delete_data_report(@Path("id") String id);
 

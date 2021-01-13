@@ -15,7 +15,7 @@ import com.app.siaplapor.rest.ApiConnection;
 import com.app.siaplapor.rest.InterfaceConnection;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class ProfileActivity extends Fragment {
+public class ProfileFragment extends Fragment {
 
     TextInputEditText name, username, email, address;
     static String user_id = "1";
